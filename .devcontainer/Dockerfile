@@ -21,6 +21,7 @@ RUN /usr/local/stata/stata do /setup.do | tee setup.$(date +%F).log
 #RUN rm /usr/local/stata/stata.lic
 
 # Setup for standard operation
+SHELL [ "/bin/bash", "-l", "-c" ]
 USER statauser
 WORKDIR /code
 ENTRYPOINT ["stata-mp"]

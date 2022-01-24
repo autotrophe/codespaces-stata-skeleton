@@ -5,7 +5,8 @@
     "context": "..",
     "initializeCommand": ".devcontainer/init.sh",
     "settings": {
-        "workbench.colorTheme": "Visual Studio Light"
+        "workbench.colorTheme": "Visual Studio Light",
+        "terminal.integrated.shell.linux": "/bin/bash"
     },    
     "mounts": ["source=${localWorkspaceFolder}/stata.lic,target=/usr/local/stata/stata.lic,type=bind",
                "source=${localWorkspaceFolder}/data,target=/data,type=bind"],
