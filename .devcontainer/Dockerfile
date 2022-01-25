@@ -10,11 +10,20 @@ USER root
 COPY stata.lic /usr/local/stata/stata.lic
 RUN chmod a+r /usr/local/stata/stata.lic
 
+# install the AEA scripts into /usr/local/sbin
+RUN git clone https://github.com/AEADataEditor/editor-scripts.git /usr/local/bin 
+
 # install any packages into the home directory as the user,
 USER statauser
 COPY setup.do /setup.do
 WORKDIR /home/statauser
 RUN /usr/local/stata/stata do /setup.do | tee setup.$(date +%F).log
+
+# Configure git to store credentials
+# NOTE: do not use this in general, as it stores your credentials!
+# NOTE: Create a personal access token specifically for use on Codespaces, so you can invalidate it if needed!
+
+RUN git config --global credential.helper store
 
 #  then delete the license again
 #USER root
