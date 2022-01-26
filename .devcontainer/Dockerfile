@@ -10,7 +10,7 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \
          curl \
          pandoc \
-         wkhtmlpdf
+         wkhtmltopdf
 
 # copy the license in so we can do the install of packages
 USER root
