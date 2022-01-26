@@ -5,6 +5,13 @@ ARG SRCHUBID=dataeditors
 
 FROM ${SRCHUBID}/stata${SRCVERSION}:${SRCTAG}
 
+# Install packages needed for aea-scripts
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+         curl \
+         pandoc \
+         wkhtmlpdf
+
 # copy the license in so we can do the install of packages
 USER root
 COPY stata.lic /usr/local/stata/stata.lic
