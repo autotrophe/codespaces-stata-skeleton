@@ -9,8 +9,8 @@ FROM ${SRCHUBID}/stata${SRCVERSION}:${SRCTAG}
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \
          curl \
-         pandoc \
-         wkhtmltopdf
+         pandoc 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wkhtmltopdf
 
 # copy the license in so we can do the install of packages
 USER root
