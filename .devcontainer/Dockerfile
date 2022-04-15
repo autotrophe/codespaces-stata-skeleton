@@ -22,6 +22,10 @@ RUN apt-get update \
 # install the AEA scripts into /usr/local/sbin
 RUN git clone https://github.com/AEADataEditor/editor-scripts.git /usr/local/bin 
 
+# Install rclone to get at Box and others
+
+RUN curl https://rclone.org/install.sh | bash
+
 
 # Now switch back to the regular user (statauser) ================================ STATAUSER
 USER statauser
