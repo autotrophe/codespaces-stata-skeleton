@@ -17,7 +17,8 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y \
          curl \
          pandoc \
-         wkhtmltopdf
+         wkhtmltopdf \
+         openssh-server openssh-client
 
 # install the gh binaries
 RUN \ 
