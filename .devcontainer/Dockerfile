@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.2
 ARG SRCVERSION=17
-ARG SRCTAG=2022-01-17
+ARG SRCTAG=2022-10-11
 ARG SRCHUBID=dataeditors
 
 FROM ${SRCHUBID}/stata${SRCVERSION}:${SRCTAG}
@@ -28,6 +28,9 @@ RUN \
 
 # install the AEA scripts into /usr/local/sbin
 RUN git clone https://github.com/AEADataEditor/editor-scripts.git /usr/local/bin 
+# get latest python requirements
+RUN curl https://raw.githubusercontent.com/AEADataEditor/replication-template-development/development/requirements.txt > requirements.txt \
+   && pip install -r requirements.txt 
 
 # Install rclone to get at Box and others
 
