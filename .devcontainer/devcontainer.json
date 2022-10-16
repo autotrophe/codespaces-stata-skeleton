@@ -4,7 +4,7 @@
     "dockerFile": "Dockerfile",
     "context": "..",
     "initializeCommand": ".devcontainer/init.sh",
-    "postCreateCommand": ".devcontainer/init.sh",
+    "postCreateCommand": ".devcontainer/post.sh",
     "settings": {
         "workbench.colorTheme": "Visual Studio Light",
         "terminal.integrated.shell.linux": "/bin/bash"
