@@ -57,6 +57,6 @@ RUN git config --global credential.helper store
 # Setup for standard operation
 SHELL [ "/bin/bash", "-l", "-c" ]
 USER statauser
-WORKDIR /code
-ENTRYPOINT ["stata-mp"]
+#WORKDIR /code
+#ENTRYPOINT ["stata-mp"]
 
