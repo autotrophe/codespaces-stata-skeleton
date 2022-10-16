@@ -38,9 +38,11 @@ RUN curl https://rclone.org/install.sh | bash
 USER statauser
 
 # install any packages into the home directory as the user,
-COPY setup.do /setup.do
+
 WORKDIR /home/statauser
-RUN /usr/local/stata/stata do /setup.do | tee setup.$(date +%F).log
+COPY setup.do setup.do
+RUN /usr/local/stata/stata do setup.do | tee setup.$(date +%F).log
+COPY stata.lic stata.lic
 
 # Configure git to store credentials
 # NOTE: do not use this in general, as it stores your credentials!
@@ -57,5 +59,5 @@ RUN git config --global credential.helper store
 # Setup for standard operation
 SHELL [ "/bin/bash", "-l", "-c" ]
 USER statauser
-WORKDIR /workspaces
+#WORKDIR /workspaces
 #ENTRYPOINT ["stata-mp"]
