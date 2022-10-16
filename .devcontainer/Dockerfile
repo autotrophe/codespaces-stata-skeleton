@@ -33,6 +33,9 @@ RUN git clone https://github.com/AEADataEditor/editor-scripts.git /usr/local/bin
 
 RUN curl https://rclone.org/install.sh | bash
 
+# get latest python requirements
+RUN curl https://raw.githubusercontent.com/AEADataEditor/replication-template-development/development/requirements.txt > /requirements.txt \
+   && pip install -r /requirements.txt 
 
 # Now switch back to the regular user (statauser) ================================ STATAUSER
 USER statauser
@@ -43,6 +46,7 @@ WORKDIR /home/statauser
 COPY setup.do setup.do
 RUN /usr/local/stata/stata do setup.do | tee setup.$(date +%F).log
 COPY stata.lic stata.lic
+
 
 # Configure git to store credentials
 # NOTE: do not use this in general, as it stores your credentials!
