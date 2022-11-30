@@ -19,6 +19,7 @@ RUN apt-get update \
          pandoc \
          wkhtmltopdf \
          python3-pip \
+         rsync \
          openssh-server openssh-client
 
 # install the gh binaries
